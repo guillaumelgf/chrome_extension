@@ -1,0 +1,20 @@
+{
+    "manifest_version": 3,
+    "name": "SoGe Scrapper",
+    "description": "Retrieve the operations of my SoGe bank account when I am on the website",
+    "version": "1.0",
+    "action": {
+        "default_icon": "images/icon.png"
+    },
+    "content_scripts": [
+        {
+            "matches": ["https://particuliers.sg.fr/*"],
+            "js": ["sg_scrapper/content-script.js"],
+            "run_at": "document_start"
+        }
+    ],
+    "web_accessible_resources": [{
+        "resources": ["sg_scrapper/injected-script.js"],
+        "matches": ["https://particuliers.sg.fr/*"]
+    }]
+}
